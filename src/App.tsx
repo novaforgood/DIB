@@ -105,7 +105,7 @@ function App() {
         {/* Comment: center the subtitle text as well */}
         <p className="text-base md:text-lg text-zinc-400 mb-8 text-center">
           {/* Comment: subtitle under header */}
-          Select a campaign from the list below.
+          Select a campaign from the list below!
         </p>
 
         {/* Comment: center the list under the text */}
