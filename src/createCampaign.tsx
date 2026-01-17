@@ -1,7 +1,16 @@
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import nameSchema from "./types/campaignType"
+import { create } from 'zustand'
+import { persist } from 'zustand/middleware'
+
+import formData, nameSchema from "./types/campaignType.ts"
+
+//zustang code idk if right place to put it
+export type State = {
+    form: Partial<typeof nameSchema>  
+}
+//end zustang
 
 function SimpleForm() {
 
@@ -12,7 +21,7 @@ function SimpleForm() {
   } = useForm({
     resolver: zodResolver(nameSchema)
   })
-  const onSubmit = (data: Object) => {
+  const onSubmit = (data: nameSchema) => {  //would the type not be nameSchema?
     console.log(data);
   }
     return (
@@ -22,7 +31,6 @@ function SimpleForm() {
         {errors.name && <p>{errors.name.message}</p>}
 
         <button type = "submit"> Submit </button>
-
       </form>
     )
 }
