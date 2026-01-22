@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { createClient, SupabaseClient } from "@supabase/supabase-js";
+import  SimpleForm  from "./components/campaign/createCampaign.tsx"
 
 // Define the Campaign type based on the data structure
 interface Campaign {
@@ -93,38 +94,42 @@ function App() {
   // Example styled list when campaigns load successfully
   // Comment: outer container uses flexbox to center content on the screen
   return (
-    <div className="min-h-screen flex items-center justify-center">
-      {/* Comment: remove max-width so it can grow with the screen */}
-      {/* Comment: inner container holds the text and list; limit width so it's centered nicely */}
-      <div className="w-full max-w-3xl px-4 flex flex-col items-center">
-        {/* Comment: add text-center to center the heading text */}
-        <h1 className="text-4xl md:text-5xl font-extrabold mb-4 text-center">
-          Campaigns
-        </h1>
+    // <div className="min-h-screen flex items-center justify-center">
+    //   {/* Comment: remove max-width so it can grow with the screen */}
+    //   {/* Comment: inner container holds the text and list; limit width so it's centered nicely */}
+    //   <div className="w-full max-w-3xl px-4 flex flex-col items-center">
+    //     {/* Comment: add text-center to center the heading text */}
+    //     <h1 className="text-4xl md:text-5xl font-extrabold mb-4 text-center">
+    //       Campaigns
+    //     </h1>
 
-        {/* Comment: center the subtitle text as well */}
-        <p className="text-base md:text-lg text-zinc-400 mb-8 text-center">
-          {/* Comment: subtitle under header */}
-          Select a campaign from the list below.
-        </p>
+    //     {/* Comment: center the subtitle text as well */}
+    //     <p className="text-base md:text-lg text-zinc-400 mb-8 text-center">
+    //       {/* Comment: subtitle under header */}
+    //       Select a campaign from the list below.
+    //     </p>
 
-        {/* Comment: center the list under the text */}
-        <ul className="space-y-4 w-full flex flex-col items-center">
-          {campaigns.map((campaign) => (
-            <li
-              key={campaign.id || campaign.title}
-              className="flex w-full max-w-md items-center justify-between rounded-2xl border border-zinc-700 bg-zinc-800 px-6 py-4"
-            >
-              <span className="text-lg font-medium">{campaign.title}</span>
+    //     {/* Comment: center the list under the text */}
+    //     <ul className="space-y-4 w-full flex flex-col items-center">
+    //       {campaigns.map((campaign) => (
+    //         <li
+    //           key={campaign.id || campaign.title}
+    //           className="flex w-full max-w-md items-center justify-between rounded-2xl border border-zinc-700 bg-zinc-800 px-6 py-4"
+    //         >
+    //           <span className="text-lg font-medium">{campaign.title}</span>
 
-              <button className="px-4 py-2 rounded-full bg-blue-500 text-sm font-semibold text-white hover:bg-blue-600">
-                View
-              </button>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
+    //           <button className="px-4 py-2 rounded-full bg-blue-500 text-sm font-semibold text-white hover:bg-blue-600">
+    //             View
+    //           </button>
+    //         </li>
+    //       ))}
+    //     </ul>
+    //   </div>
+    // </div>
+
+    <SimpleForm>
+
+    </SimpleForm>
   );
 }
 
