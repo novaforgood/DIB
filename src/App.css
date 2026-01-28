@@ -1,42 +1,253 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 #root {
-  max-width: 1280px;
+  min-height: 100vh;
+}
+
+.home-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow-x: hidden;
+  background-color: #f5f5f5;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+@media (min-width: 768px) {
+  .navbar {
+    padding: 1rem 2rem;
+  }
+}
+
+.nav-logo {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #667eea;
+  text-decoration: none;
+}
+
+@media (min-width: 768px) {
+  .nav-logo {
+    font-size: 1.5rem;
+  }
+}
+
+.nav-links {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+@media (min-width: 640px) {
+  .nav-links {
+    gap: 2rem;
+  }
+}
+
+.nav-link {
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: #667eea;
+}
+
+.donate-link {
+  background: #667eea;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: background 0.3s;
+  white-space: nowrap;
+}
+
+@media (min-width: 768px) {
+  .donate-link {
+    padding: 0.5rem 1.5rem;
+  }
+}
+
+.donate-link:hover {
+  background: #5568d3;
+  color: white;
+}
+
+.home-content {
+  flex: 1;
+  padding: 2rem 1.5rem;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+@media (min-width: 768px) {
+  .home-content {
+    padding: 3rem 2rem;
+  }
+}
+
+.home-content h1 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+@media (min-width: 768px) {
+  .home-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+}
+
+.campaigns-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin: 2rem 0;
+  padding: 0;
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .campaigns-list {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}
+
+.campaign-item {
+  list-style: none;
+}
+
+.campaign-link {
+  display: block;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 2px solid #e0e0e0;
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-decoration: none;
+  color: inherit;
+}
+
+.campaign-link:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+  border-color: #667eea;
+}
+
+.campaign-link h3 {
+  color: #333;
+  margin-bottom: 0.75rem;
+  font-size: 1.25rem;
+}
+
+.campaign-preview {
+  color: #666;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.campaign-stats {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1rem;
+  border-top: 1px solid #e0e0e0;
+  font-weight: 600;
+  color: #667eea;
+}
+
+.error-container {
+  padding: 1.5rem;
+  background: #fee;
+  border: 1px solid #f5c6cb;
+  border-radius: 8px;
+  margin: 2rem 0;
+}
+
+.error-container button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.cta-section {
+  margin-top: 3rem;
   text-align: center;
+  padding: 2rem 1.5rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 16px;
+  color: white;
+  width: 100%;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+@media (min-width: 768px) {
+  .cta-section {
+    margin-top: 4rem;
+    padding: 3rem;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+.cta-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.cta-section p {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+@media (min-width: 768px) {
+  .cta-section h2 {
+    font-size: 2rem;
+  }
+
+  .cta-section p {
+    font-size: 1.1rem;
   }
 }
 
-.card {
-  padding: 2em;
+.cta-button {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background: white;
+  color: #667eea;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.read-the-docs {
-  color: #888;
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
